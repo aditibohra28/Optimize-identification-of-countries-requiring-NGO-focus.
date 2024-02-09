@@ -24,6 +24,9 @@ Total_fer(fertility) : Average number of children born per woman, shaping popula
 Gdpp: Gross Domestic Product per capita, measuring economic output and standard of living.
 
 
+ -SAS CODING ENVIRONMENT IS NOT PRESENT IN THE GITHUB/VISUAL STUDIO FOR EDITING AND IS ONLY POSSIBLE IN SAS SOFTWARE.
+ THATS WHY CODING OUTPUT SCREENSHOTS HAS BEEN SHARED.
+
 
 THRESHOLDS provided by NGO for further classification are:-
 
