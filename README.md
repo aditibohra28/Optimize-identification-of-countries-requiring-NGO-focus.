@@ -24,6 +24,7 @@ Total_fer(fertility) : Average number of children born per woman, shaping popula
 Gdpp: Gross Domestic Product per capita, measuring economic output and standard of living.
 
 
+
 THRESHOLDS provided by NGO for further classification are:-
 
 Income < 1000 
