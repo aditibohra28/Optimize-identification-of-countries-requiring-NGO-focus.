@@ -27,11 +27,11 @@ Gdpp: Gross Domestic Product per capita, measuring economic output and standard 
 
 THRESHOLDS provided by NGO for further classification are:-
 
-Income < 1000 
-health_spending_per_capita < 2000 
-child_mort > 50 
-inflation > 8 
-life_expec < 50 
+Income < 1000 ,
+health_spending_per_capita < 2000 ,
+child_mort > 50 ,
+inflation > 8 ,
+life_expec < 50, 
 total_fer > 2.5
 
 
