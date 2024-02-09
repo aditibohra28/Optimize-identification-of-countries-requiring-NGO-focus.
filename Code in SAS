@@ -34,24 +34,6 @@ FROM cty.country1;
 quit;
 proc print data = country2;run;
 
-# Using 1.90 as athreshold (as per NGO) for calculating below poverty line countries and highlighting them for NGO focus.
-proc sql;
-create table country3 as
-select country, Income,
- CASE
-        WHEN Income < 1.90 THEN 'Below Poverty Line'
-        ELSE 'Above Poverty Line'
-    END AS poverty_status
-FROM country2;
-quit;
-
-proc sql;
-create table country4 as
-select country, poverty_status from country3
-where poverty_status = 'Below Poverty Line';
-quit;
-proc print data = country4;run;
-
 # Hypothetical SAS-like code for creating larger visualizations with improved labels */
 ods graphics / width=4000px height=1500px; /* Adjust width and height as needed */
 
