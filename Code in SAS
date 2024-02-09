@@ -1,0 +1,107 @@
+#Creating permanent library in sas is important for storing and accessing datasets across sessions, ensuring data integrity, and facilitating efficient data management and analysis processes.
+
+libname cty "C:\Users\Dell\OneDrive\Desktop\aditi";
+
+#Importing datasets in SAS is crucial as it lays the foundation for data analysis and manipulation.
+
+proc import datafile = "C:\Users\Dell\Downloads\Country-data.csv"
+out = country
+dbms = csv;
+run;
+
+#Using permanent library for saving the datafile to avoid loosing the progress.
+data cty.country1;
+set country;
+run;
+proc print data = cty.country1;run;
+
+#using sql in sas software with the help of proc sql for performing manipulations and analysis.
+#Calculating exports_per_capita, health_spending_per_capita and  imports_per_capita using the gdpp .
+proc sql;
+create table cty.country2 as 
+SELECT 
+    country,
+    child_mort,
+    exports*gdpp AS exports_per_capita,
+    health*gdpp AS health_spending_per_capita,
+    imports*gdpp AS imports_per_capita,
+    Income,
+    Inflation,
+    life_expec,
+    total_fer,
+    gdpp 
+FROM cty.country1;
+quit;
+proc print data = country2;run;
+
+# Using 1.90 as athreshold (as per NGO) for calculating below poverty line countries and highlighting them for NGO focus.
+proc sql;
+create table country3 as
+select country, Income,
+ CASE
+        WHEN Income < 1.90 THEN 'Below Poverty Line'
+        ELSE 'Above Poverty Line'
+    END AS poverty_status
+FROM country2;
+quit;
+
+proc sql;
+create table country4 as
+select country, poverty_status from country3
+where poverty_status = 'Below Poverty Line';
+quit;
+proc print data = country4;run;
+
+# Hypothetical SAS-like code for creating larger visualizations with improved labels */
+ods graphics / width=4000px height=1500px; /* Adjust width and height as needed */
+
+proc sgplot data=country2;
+    title 'GDP per Capita by Country';
+    vbar country / response=gdpp 
+        datalabel=gdpp datalabelattrs=(size=9);
+    xaxis display=(nolabel) label='Country' fitpolicy=rotate;
+    yaxis label='GDP per Capita';
+run;
+
+#Highlighting those countries with income less than required , so that NGO can focus them in terms of income.
+data income_focus ;
+set country2;
+if income < 1000 then output income_focus;
+RUN;
+proc print data = income_focus;
+run;
+
+#Highlighting those countries with health_spending_per_capita less than required , so that NGO can focus them in terms of health_spending_per_capita.
+data health_focus ;
+set country2;
+if health_spending_per_capita < 2000 then output health_focus;
+RUN;
+proc print data = health_focus;run;
+
+#Highlighting those countries with child mortality less than required , so that NGO can focus them in terms of child mortality.
+data child_mort_focus;
+set country2;
+if child_mort > 50 then output child_mort_focus;
+RUN;
+proc print data = child_mort_focus;run;
+
+#Highlighting those countries with inflation greater than required , so that NGO can focus them in terms of inflation.
+data inflation_focus;
+set country2;
+if inflation > 8 then output inflation_focus;
+RUN;
+proc print data = inflation_focus;run;
+
+#Highlighting those countries with life expectancy less than required , so that NGO can focus them in terms of life expectancy.
+data life_expec_focus;
+set country2;
+if life_expec < 50 then output life_expec_focus;
+RUN;
+proc print data = life_expec_focus;run;
+
+#Highlighting those countries with total fertility greater than required , so that NGO can focus them in terms of fertility.
+data total_fer_focus;
+set country2;
+if total_fer > 2.5 then output total_fer_focus;
+RUN;
+proc print data =total_fer_focus;run;
