@@ -5,15 +5,17 @@ Furthermore, explaining how our efforts led to the enhancement of efficiency in 
 
 Attributes are like :-
 
- - Child_mort: Rate of children dying before age 5, reflecting healthcare and living conditions.
- - Exports: Goods and services sold abroad, vital for economic growth and international trade.
- - Health: Access to healthcare services, impacting population well-being and longevity.
- - Imports: Goods and services bought from other countries, supporting domestic consumption and industry.
- - Income: Financial earnings of individuals or households, affecting living standards and purchasing power.
- - Inflation: Rate of general price level increase over time, influencing purchasing power and economic stability.
- - Life_expec(life expectancy) : Average number of years a person is expected to live, indicative of overall population health.
- - Total_fer(fertility) : Average number of children born per woman, shaping population growth and demographics.
- - Gdpp: Gross Domestic Product per capita, measuring economic output and standard of living.
+ - Child Mortality (Child_mort): This tells us how many children die before they reach the age of 5. It shows how healthy and safe living conditions are for 
+ children.
+- Exports: These are goods and services that a country sells to other countries. Exporting is important because it helps a country's economy grow and promotes trade with other nations.
+- Health: This indicates how easy it is for people to get healthcare services. Good access to healthcare means people can stay healthy and live longer lives.
+- Imports: These are goods and services that a country buys from other countries. Imports help support domestic consumption and industries by providing goods and services that might not be available locally.
+- Income: Income refers to the money that individuals or households earn. It affects their living standards and how much they can buy.
+- Inflation: This measures how prices in general are increasing over time. It affects how much things cost and how far your money goes when you buy goods and services.
+- Life Expectancy (Life_expec): This is the average number of years a person can expect to live. It tells us about the overall health and well-being of a population.
+- Total Fertility (Total_fer): This tells us how many children, on average, each woman is having. It helps us understand population growth and changes in demographics.
+
+GDP per capita (Gdpp): This measures the economic output of a country per person. It tells us about the standard of living and overall wealth of the population.
 
 THRESHOLDS provided by NGO for further classification are:-
 
